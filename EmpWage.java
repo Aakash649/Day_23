@@ -1,3 +1,8 @@
+interface Alt
+{
+	public void attend(int Emp_Wage_per_Hr,int No_Days,int Work_Hrs );	
+}
+
 class Hello
 {
         void Welcome()
@@ -6,7 +11,7 @@ class Hello
         }
 }
 
-class Attend1
+class Attend1 implements Alt
 {
 	int Emp_Wage_per_Hr,day=0,Total_Hrs=0,No_Days,Work_Hrs;
 	int full_day=8,part_day=4,EmpWage,hrs,Total_Wage=0;
@@ -57,19 +62,21 @@ class EmpWage
 		Attend1 at[]=new Attend1[4];
                 Hello A1 = new Hello();
                 A1.Welcome();
-		CompanyEmpWage Reliance=new CompanyEmpWage();
-		CompanyEmpWage Tata=new CompanyEmpWage();
-		CompanyEmpWage TCS=new CompanyEmpWage();
-		CompanyEmpWage GVK=new CompanyEmpWage();
-	
+		Alt Reliance=new CompanyEmpWage(); 
+		Alt TCS =new CompanyEmpWage();
+		Alt GVK =new CompanyEmpWage();
+		Alt Tata =new CompanyEmpWage();
+
+
 		Reliance.attend(20,20,6);
 		Tata.attend(10, 200, 8);
 		TCS.attend(15, 205, 6);
 		GVK.attend(35, 265, 7);
-		at[0]=Reliance;
-		at[1]=TCS;
-		at[2]=GVK;
-		at[3]=Tata;
+
+		at[0]=(Attend1) Reliance;
+		at[1]=(Attend1)TCS;
+		at[2]=(Attend1)GVK;
+		at[3]=(Attend1)Tata;
 
 		for(int i=0; i<=at.length-1; i++) 
 		{
