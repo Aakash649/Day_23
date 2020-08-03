@@ -45,26 +45,35 @@ class Attend1
 	//System.out.println("Total Wage: "+Total_Wage);	
 	}
 }
+class CompanyEmpWage extends Attend1 
+{
+	
+}
 class EmpWage
 {
         public static void main(String[] args)
         {
+
+		Attend1 at[]=new Attend1[4];
                 Hello A1 = new Hello();
                 A1.Welcome();
-		Attend1 Reliance=new Attend1();
-		Attend1 Tata=new Attend1();
-		Attend1 TCS=new Attend1();
-		Attend1 GVK=new Attend1();
+		CompanyEmpWage Reliance=new CompanyEmpWage();
+		CompanyEmpWage Tata=new CompanyEmpWage();
+		CompanyEmpWage TCS=new CompanyEmpWage();
+		CompanyEmpWage GVK=new CompanyEmpWage();
 	
 		Reliance.attend(20,20,6);
 		Tata.attend(10, 200, 8);
 		TCS.attend(15, 205, 6);
 		GVK.attend(35, 265, 7);
-	
-		System.out.println("Reliance Wage: "+Reliance.Total_Wage);
-		System.out.println("TATA Wage: "+Tata.Total_Wage);
-		System.out.println("TCS: "+TCS.Total_Wage);
-		System.out.println("GVK: "+GVK.Total_Wage);
+		at[0]=Reliance;
+		at[1]=TCS;
+		at[2]=GVK;
+		at[3]=Tata;
+
+		for(int i=0; i<=at.length-1; i++) 
+		{
+			System.out.println(" Wage: "+at[i].Total_Wage);
+		}
        }
 }
-
