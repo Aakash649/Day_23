@@ -66,6 +66,10 @@ class Attend1 implements Alt
 		}
 		
 	}
+	public void TotalWage() 
+	{
+		System.out.println("Total wage of Employee is: "+Total_Wage);
+	}
 
 }
 class CompanyEmpWage extends Attend1 
@@ -103,6 +107,7 @@ class EmpWage
 			Attend1 ntr=at.get(i);
 			System.out.println("Company Name: "+ntr.Company+"|"+" Total Wage: "+ntr.Total_Wage);
 			ntr.DailyWage();
+			ntr.TotalWage();
 		}
 
        }
