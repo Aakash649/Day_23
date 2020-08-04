@@ -4,6 +4,7 @@ import java.util.*;
 interface Alt
 {
 	public void attend(String Cmp_Name,int Emp_Wage_per_Hr,int No_Days,int Work_Hrs );	
+	public void DailyWage();
 }
 
 class Hello
@@ -17,8 +18,9 @@ class Hello
 class Attend1 implements Alt
 {
 	int Emp_Wage_per_Hr,day=0,Total_Hrs=0,No_Days,Work_Hrs;
-	int full_day=8,part_day=4,EmpWage,hrs,Total_Wage=0;
+	int full_day=8,part_day=4,EmpWage,hrs,Total_Wage=0,a;
 	String Company,Cmp_Name;
+	ArrayList<Integer> at1=new ArrayList<Integer>();
 
 	public void attend(String Cmp_Name,int Emp_Wage_per_Hr,int No_Days,int Work_Hrs ) 
 	{
@@ -51,9 +53,20 @@ class Attend1 implements Alt
 		//System.out.println("Employee Wage: "+EmpWage+" Total Hrs: "+Total_Hrs+" On Day: " +day);
 		Total_Wage=Total_Wage+EmpWage;
 		Company=Cmp_Name;
+		at1.add(EmpWage);
 	}
 	//System.out.println("Total Wage: "+Total_Wage);	
 	}
+	public void DailyWage() 
+	{
+		for(int j=0;j<=at1.size()-1;j++) 
+		{
+			a=at1.get(j);
+			System.out.println("Daily Wage: "+a);
+		}
+		
+	}
+
 }
 class CompanyEmpWage extends Attend1 
 {
@@ -89,6 +102,7 @@ class EmpWage
 		{
 			Attend1 ntr=at.get(i);
 			System.out.println("Company Name: "+ntr.Company+"|"+" Total Wage: "+ntr.Total_Wage);
+			ntr.DailyWage();
 		}
 
        }
